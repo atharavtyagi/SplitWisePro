@@ -70,7 +70,7 @@ export default function CreateExpensePage() {
   const today = new Date().toISOString().split('T')[0];
 
   const { register, handleSubmit, watch, control, setValue, formState: { errors, isSubmitting } } = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(schema) as any,
     defaultValues: {
       currency: 'INR', category: 'other', date: today,
       split_type: 'equal', paid_by_id: user?.id ?? '',
@@ -125,7 +125,7 @@ export default function CreateExpensePage() {
         <h1 className="text-xl font-bold text-white">Add Expense</h1>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-5">
         <div className="glass rounded-2xl p-5 space-y-4">
           <Input label="Title" placeholder="e.g. Dinner at Bistro" error={errors.title?.message} {...register('title')} required />
           <div className="grid grid-cols-2 gap-3">

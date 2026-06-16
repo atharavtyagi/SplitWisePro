@@ -1,10 +1,10 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 
-interface SkeletonProps { className?: string; }
+interface SkeletonProps { className?: string; style?: React.CSSProperties; }
 
-export function Skeleton({ className }: SkeletonProps) {
-  return <div className={cn('skeleton', className)} />;
+export function Skeleton({ className, style }: SkeletonProps) {
+  return <div className={cn('skeleton', className)} style={style} />;
 }
 
 export function SkeletonCard() {
